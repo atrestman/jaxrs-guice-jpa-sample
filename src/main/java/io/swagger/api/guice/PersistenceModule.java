@@ -23,7 +23,7 @@ public class PersistenceModule extends ServletModule {
         logger.log(Level.INFO, "filtering persistence through...");
         filter("/v2/*").through(PersistFilter.class);
 
-        //bind(PetStoreInitializer.class).in(Scopes.SINGLETON);
+        // bind(PetStoreInitializer.class).in(Scopes.SINGLETON);
         logger.log(Level.INFO, "Done configuring persistence");
 
     }
