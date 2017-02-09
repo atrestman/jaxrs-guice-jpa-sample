@@ -1,0 +1,21 @@
+package io.swagger.api;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.jaxrs.json.JacksonJaxbJsonProvider;
+import com.google.inject.Singleton;
+import io.swagger.util.Json;
+
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.ext.Provider;
+
+@Provider
+@Produces({MediaType.APPLICATION_JSON})
+@Singleton
+public class JacksonJsonProvider extends JacksonJaxbJsonProvider {
+    private static ObjectMapper commonMapper = Json.mapper();
+
+    public JacksonJsonProvider() {
+        super.setMapper(commonMapper);
+    }
+}

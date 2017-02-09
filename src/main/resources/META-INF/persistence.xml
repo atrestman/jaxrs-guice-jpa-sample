@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<persistence
+        xmlns="http://java.sun.com/xml/ns/persistence"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+        version="2.0">
+    <persistence-unit name="petStore" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.ejb.HibernatePersistence</provider>
+
+        <class>io.swagger.api.model.UserEntity</class>
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+
+        <properties>
+            <!-- MySQL stuff -->
+            <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
+            <property name="hibernate.connection.url" value="jdbc:mysql://127.0.0.1:3306/petstore"/>
+            <property name="hibernate.connection.username" value="root" />
+            <property name="hibernate.connection.password" value ="" />
+
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
+            <property name="hibernate.connection.autocommit" value="true"/>
+
+            <property name="hibernate.hbm2ddl.auto" value="update" />
+            <property name="hibernate.listeners.envers.autoRegister" value="false" />
+            <property name="hibernate.show_sql" value="true" />
+
+            <!-- Performance tuning -->
+            <property name="hibernate.default_batch_fetch_size" value="8" />
+            <property name="hibernate.max_fetch_depth" value="3" />
+
+            <!-- Default is false for backwards compatibility. Should be used on
+              all new projects -->
+            <property name="hibernate.id.new_generator_mappings" value="true" />
+        </properties>
+    </persistence-unit>
+
+</persistence>
